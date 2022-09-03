@@ -1,7 +1,13 @@
-import os 
+import os
 from pathlib import Path
+import argparse
 
-raw_path = input("What is the path to the new wallpaper?\n")
+parser = argparse.ArgumentParser(description='A wallpaper switcher for GNOME')
+
+parser.add_argument('path', type=str, help='The path to the wallpaper')
+args = parser.parse_args()
+
+raw_path = args.path
 path = Path(raw_path)
 
 if(path.exists()):
